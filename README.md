@@ -20,8 +20,71 @@ If y represents the dependent variable and x the independent variable, this rela
 ![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
 
 # Program :
+```
+import numpy as np
 
+import math
 
+import matplotlib.pyplot as plt
 
+x=[int(i) for i in input().split()]
+
+y=[int(i) for i in input().split()]
+
+N=len(x)
+
+Sx=0
+
+Sy=0
+
+Sxy=0
+
+Sx2=0
+
+Sy2=0
+
+for i in range(0,N):
+
+Sx=Sx+x[i]
+
+Sy=Sy+y[i]
+
+Sxy=Sxy+x[i]*y[i]
+
+Sx2=Sx2+x[i]**2
+
+Sy2=Sy2+y[i]**2
+
+r=(NSxy-SxSy)/(math.sqrt(NSx2-Sx2)math.sqrt(NSy2-Sy*2))
+
+print("The Correlation coefficient is %0.3f"%r)
+
+byx=(NSxy-SxSy)/(N*Sx2-Sx**2)
+
+xmean=Sx/N
+
+ymean=Sy/N
+
+print("THe Regression line Y on X is ::: y = %0.3f + %0.3f (x-%0.3f)"%(ymean,byx,xmean))
+
+plt.scatter(x,y)
+
+def Reg(x):
+
+return ymean + byx*(x-xmean)
+
+x=np.linspace(0,80,51)
+
+y1=Reg(x)
+
+plt.plot(x,y1,'r')
+
+plt.xlabel('x-data')
+
+plt.ylabel('y-data')
+
+plt.legend(['Regression Line','Data points'])
+```
 
 # Results and Output : 
+![1](https://user-images.githubusercontent.com/94165336/231430969-3868f3f1-28a7-46c6-9299-cc7222e84f78.png)
